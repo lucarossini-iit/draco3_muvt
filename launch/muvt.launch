@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<launch>
+
+    <param name="robot_description" textfile="$(find draco3_muvt)/draco3_description/draco3.urdf"/>
+    <param name="robot_description_semantic" textfile="$(find draco3_muvt)/draco3_description/draco3.srdf"/>
+
+    <node pkg="muvt_ros" type="test_node" name="test_node" output="screen">
+        <param name="dcm_config" textfile="$(find draco3_muvt)/params/dcm_config.yaml"/>
+        <param name="cartesio_stack" textfile="$(find draco3_muvt)/params/cartesio_stack.yaml"/>
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz" output="screen"
+      args="-d $(find draco3_muvt)/rviz/muvt.rviz"/>
+
+</launch>
